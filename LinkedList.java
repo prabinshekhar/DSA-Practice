@@ -82,7 +82,16 @@ public class LinkedList {
         curr.next=null;
       }
     }
-    
+
+  public void deleteFromBegin()
+    {
+       if(head!=null)
+       {
+           head=head.next;
+       }
+       
+    }
+  
     public static void main(String[] args) {
       LinkedList list = new LinkedList();
       list.add(1);
