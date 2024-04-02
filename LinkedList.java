@@ -66,6 +66,23 @@ public class LinkedList {
            newNode.next=head;
            head=newNode;
        }
+
+  public void deleteFromEnd()
+    {
+      if(head==null || head.next==null)
+      {
+        head=null;
+      }
+      else{
+        Node curr = head;
+        while(curr.next.next!=null)
+        {
+          curr=curr.next;
+        }
+        curr.next=null;
+      }
+    }
+    
     public static void main(String[] args) {
       LinkedList list = new LinkedList();
       list.add(1);
@@ -74,6 +91,8 @@ public class LinkedList {
       
       list.display();
       System.out.print(list.llength());
+      list.deleteFromEnd();
+      list.display();
       
 }
 }
