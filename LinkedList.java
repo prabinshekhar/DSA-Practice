@@ -59,7 +59,13 @@ public class LinkedList {
            }
           return l;
        }
-  
+
+   public void addBegin(int data)
+       {
+           Node newNode = new Node(data);
+           newNode.next=head;
+           head=newNode;
+       }
     public static void main(String[] args) {
       LinkedList list = new LinkedList();
       list.add(1);
