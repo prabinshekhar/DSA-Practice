@@ -48,7 +48,18 @@ public class LinkedList {
       System.out.println();
     }
     
-    
+    public int llength()
+       {
+           int l=0;
+           Node curr = head;
+           while(curr!=null)
+           {
+               l++;
+               curr=curr.next;
+           }
+          return l;
+       }
+  
     public static void main(String[] args) {
       LinkedList list = new LinkedList();
       list.add(1);
@@ -56,6 +67,7 @@ public class LinkedList {
       list.add(3);
       
       list.display();
+      System.out.print(list.llength());
       
 }
 }
