@@ -91,7 +91,26 @@ public class LinkedList {
        }
        
     }
-  
+
+  public void search(int s)
+  {
+      int flag=0;
+      Node curr = head;
+      while(curr!=null)
+      {
+          if(curr.data==s)
+          {
+              flag=1;
+              System.out.print("Found");
+              break;
+          }
+          curr=curr.next;
+      }
+     if(flag!=1)
+     {
+         System.out.print("Not Found");
+     }
+  }
     public static void main(String[] args) {
       LinkedList list = new LinkedList();
       list.add(1);
