@@ -65,6 +65,36 @@ class DoubleLL {
     }
     System.out.println();
   }
+
+   
+  public void delete()
+  {
+    if(tail==null)
+    {
+      return;
+    }
+    else if (head == tail)
+    {
+      head=null;
+      tail=null;
+    }
+    else{
+      tail=tail.prev;
+      tail.next=null;
+    }
+    
+  }
+  
+  public void fdelete(){
+    if(head==null || head.next==null)
+    {
+      return;
+    }
+    else{
+      head=head.next;
+      head.prev=null;
+    }
+  }
   
   public static void main(String[]  args)
   {
