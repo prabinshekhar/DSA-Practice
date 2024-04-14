@@ -1,0 +1,26 @@
+class A{
+public static int FACT(int n)
+{
+  //base condition
+  if(n==0)
+  {
+    return 1;
+  }
+  
+  //Hypothesis n-1
+  int hyp = FACT(n-1);
+  
+  //Induction 
+  int res = n* hyp ;
+  
+  return res;
+}
+
+public static void main(String args[])
+{
+  
+  int res = FACT(3);
+  System.out.print(res);
+}
+
+}
