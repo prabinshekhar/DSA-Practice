@@ -1,0 +1,24 @@
+class A{
+public static void Print(int n)
+{
+  //base condition
+  if(n==1)
+  {
+    System.out.print(1);
+    return;
+  }
+  
+  //Hypothesis n-1
+  Print(n-1);
+  
+  //Induction 
+  System.out.print(n+ " ");
+}
+
+public static void main(String args[])
+{
+  
+  Print(10);
+}
+
+}
