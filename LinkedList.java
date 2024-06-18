@@ -146,6 +146,13 @@ public class LinkedList {
       }
       head=prev;
     }
+
+  
+//delete the whole LinkedList
+  public void delete()
+   {
+     head=null;
+   }
   
     public static void main(String[] args) {
       LinkedList list = new LinkedList();
