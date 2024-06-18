@@ -147,6 +147,21 @@ public class LinkedList {
       head=prev;
     }
 
+  //get the nth element from linkedlist
+  public int getNth(int pos)
+   {
+     Node curr = head;
+     int i=0;
+     while(curr!=null)
+     {
+       if(pos == i)
+        return curr.data;
+      i++;
+      curr=curr.next;
+     }
+     return 0;
+   }
+   
   
 //delete the whole LinkedList
   public void delete()
