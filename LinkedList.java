@@ -91,6 +91,26 @@ public class LinkedList {
        }
        
     }
+//Write a function which deletes Node which has data equal to 34 
+  public void pop34()
+    {
+      while(head!=null && head.data==34)
+      {
+        head=head.next;
+      }
+      
+      Node curr = head;
+      while(curr!=null && curr.next!=null)
+      {
+        if(curr.next.data==34)
+        {
+          curr.next = curr.next.next;
+        }
+        else{
+          curr=curr.next;
+        }
+      }
+    }
 
   public void search(int s)
   {
