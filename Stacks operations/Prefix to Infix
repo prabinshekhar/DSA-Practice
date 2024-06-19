@@ -1,1 +1,60 @@
+ALGORITHM - 
+1) Read Prefix Expressions in reverse order ( from Right to Left)
+2) If Sysmbol is an Operand , then push it into stack
+3) If Symbol is opertaors , then Pop() two operands from the stack and 
+   String = ( operand1 + operator + operand2 ) 
+  Then , push the String to the Stack.
+4) Repeat 
 
+
+
+
+
+import java.util.Stack;
+
+public class preinfix {
+  
+  static boolean isOperator(char ch)
+  {
+    switch(ch){
+     case '+':
+     case '-':
+     case '*':
+     case '/':
+     case '^':
+     case '%':
+       return true;
+    }
+    return false;
+  }
+  
+  public static String convert(String str)
+  {
+    Stack<String> stack = new Stack<>();
+    int l = str.length();
+    
+    for(int i=l-1;i>=0;i--)
+    {
+      char c= str.charAt(i);
+      if(isOperator(c))
+      {
+        String op1=stack.pop();
+        String op2=stack.pop();
+        
+        String res= "("+ op1 + c + op2 + ")";
+        stack.push(res);
+      }
+      else{
+        stack.push(c + "");
+      }
+    }
+    return stack.pop();
+  }
+  
+  public static void main(String[] args)
+  {
+    String exp = "*-A/BC-/AKL";
+    System.out.println("Infix : " + convert(exp));
+  }
+  
+}
