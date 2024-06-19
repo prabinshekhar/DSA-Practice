@@ -1,0 +1,59 @@
+ALGORITHM - 
+1) READ PREFIX EXPRESSION IN REVERSE ORDER
+2)IF SYMBOL IS OPERNAD , PUSH
+3)IF SYMBOL IS OPERATOR , THEN POP() TWO OPERANDS FROM STACK
+  STRING = OPERAND1 + OPERAND2 + OPERATOR 
+  PUSH BACK STRING TO STACK
+4)REPEAT 
+
+
+
+
+import java.util.Stack;
+
+public class preinfix {
+  
+  static boolean isOperator(char ch)
+  {
+    switch(ch){
+     case '+':
+     case '-':
+     case '*':
+     case '/':
+     case '^':
+     case '%':
+       return true;
+    }
+    return false;
+  }
+  
+  public static String convert(String str)
+  {
+    Stack<String> stack = new Stack<>();
+    int l = str.length();
+    
+    for(int i=l-1;i>=0;i--)
+    {
+      char c= str.charAt(i);
+      if(isOperator(c))
+      {
+        String op1=stack.pop();
+        String op2=stack.pop();
+        
+        String res= "("+ op1+ op2 + c + ")";
+        stack.push(res);
+      }
+      else{
+        stack.push(c + "");
+      }
+    }
+    return stack.pop();
+  }
+  
+  public static void main(String[] args)
+  {
+    String exp = "*-A/BC-/AKL";
+    System.out.println("Postfix : " + convert(exp));
+  }
+  
+}
