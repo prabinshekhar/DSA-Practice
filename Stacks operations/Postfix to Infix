@@ -1,0 +1,60 @@
+ALGORITHM - 
+1) READ POSTFIX EXPRESSION FROM LEFT TO RIGHT
+2) IF SYMBOL IS OPERAND , THEN PUSH TO STACK
+3) IF SYMBOL IS OPERATOR , THEN POP TOP TWO OPERAND 
+   STRING = OPERAND2 + OPERATOR + OPERAND1 
+   PUSH TO STACK 
+4)REPEAT 
+
+
+
+
+
+import java.util.Stack;
+
+public class preinfix {
+  
+  static boolean isOperator(char ch)
+  {
+    switch(ch){
+     case '+':
+     case '-':
+     case '*':
+     case '/':
+     case '^':
+     case '%':
+       return true;
+    }
+    return false;
+  }
+  
+  public static String convert(String str)
+  {
+    Stack<String> stack = new Stack<>();
+    int l = str.length();
+    
+    for(int i=0;i<l;i++)
+    {
+      char c= str.charAt(i);
+      if(isOperator(c))
+      {
+        String op1=stack.pop();
+        String op2=stack.pop();
+        
+        String res=  "("+ op2 + c + op1 + ")";
+        stack.push(res);
+      }
+      else{
+        stack.push(c + "");
+      }
+    }
+    return stack.pop();
+  }
+  
+  public static void main(String[] args)
+  {
+    String exp = "ABC/-AK/L-*";
+    System.out.println("Prefix : " + convert(exp));
+  }
+  
+}
