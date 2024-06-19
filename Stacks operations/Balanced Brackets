@@ -1,0 +1,65 @@
+import java.util.*;
+
+public class BalancedBrackets {
+  
+  static Boolean check(String expression)
+  {
+    Deque<Character> stack = new ArrayDeque<Character>();
+    
+    
+    for(int i=0;i<expression.length();i++)
+    {
+      char x= expression.charAt(i);
+      
+      
+      if(x=='(' || x=='[' || x=='{')
+      {
+        stack.push(x);
+        continue;
+      }
+      
+      if(stack.isEmpty())
+      {
+        return false;
+      }
+      
+      char ch;
+      switch(x){
+        case ')':
+          ch = stack.pop();
+          if(ch=='}' || ch==']')
+           return false;
+        break;
+        case '}':
+          ch=stack.pop();
+          if(ch==')' || ch==']')
+           return false;
+        break;
+        case ']':
+          ch = stack.pop();
+          if(ch==')' || ch=='}')
+           return false;
+        break;
+      }
+    }
+    
+    return (stack.isEmpty());
+    
+    
+  }
+  
+  
+  public static void main(String[] args)
+  {
+    String exp = "({[]})";
+    if(check(exp))
+    {
+    System.out.print("Balanced");
+    }
+    else
+    {
+      System.out.print("Not balanced");
+    }
+  }
+  
+}
