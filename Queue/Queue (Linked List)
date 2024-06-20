@@ -1,0 +1,86 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      
+      Queue q = new Queue();
+      q.enqueue(10);
+      q.enqueue(20);
+      q.enqueue(30);
+      q.enqueue(40);
+      q.display();
+      q.dequeue();
+      q.display();
+  }
+}
+
+class QNode{
+  int data;
+  QNode next;
+  
+  public QNode(int data)
+  {
+    this.data=data;
+    this.next=null;
+  }
+}
+
+class Queue{
+  QNode front , rear;
+  public Queue() {
+    this.front = this.rear = null;
+  }
+  
+  
+  public boolean isEmpty(){
+    return front==null;
+  }
+  public void enqueue(int data)
+  {
+    QNode newNode = new QNode(data);
+    
+    if(this.rear==null)
+    {
+      this.front=this.rear=newNode;
+      return;
+    }
+    this.rear.next=newNode;
+    this.rear=newNode;
+  }
+  
+  public int dequeue()
+  {
+    if(this.front==null)
+    {
+      System.out.println("Queue is empty");
+      return Integer.MIN_VALUE;
+      
+    }
+     
+     QNode temp = this.front;
+     this.front=this.front.next;
+     
+     if(this.front==null)
+     this.rear=null;
+     return temp.data;
+  }
+  
+  public void display()
+  {
+    if(isEmpty())
+    {
+      System.out.println("Queue is empty");
+      return;
+    }
+    
+    QNode curr = front;
+    while(curr!=null)
+    {
+      System.out.print(curr.data+" ");
+      curr=curr.next;
+    }
+    System.out.println();
+  }
+}
+  
+ 
