@@ -1,0 +1,23 @@
+public int findMaxRec(TreeNode node)
+  {
+    if(node==null)
+    {
+      return Integer.MIN_VALUE;
+    }
+    int max = node.value;
+    int leftMax = findMaxRec(node.left);
+    int rightMax = findMaxRec(node.right);
+    return Math.max(max,Math.max(leftMax,rightMax));
+  }
+  
+  public int findMinRec(TreeNode node)
+  {
+    if(node==null)
+    {
+      return Integer.MAX_VALUE;
+    }
+    int min= node.value;
+    int leftMin=findMinRec(node.left);
+    int rightMin=findMinRec(node.right);
+    return Math.min(min,Math.min(leftMin,rightMin));
+  }
