@@ -1,0 +1,36 @@
+ public int countNodes(){
+    if(root==null)
+    {
+      return 0;
+    }
+    
+    int count=0;
+    Queue<TreeNode> queue = new LinkedList<>();
+    queue.offer(root);
+    
+    while(!queue.isEmpty())
+    {
+      TreeNode current = queue.poll();
+      count++;
+      
+      if(current.left!=null)
+      {
+        queue.offer(current.left);
+      }
+      if(current.right!=null)
+      {
+        queue.offer(current.right);
+      }
+    }
+    return count;
+  }
+  
+  // Method to count the number of nodes in the binary tree Recursively
+  public int countNodesRes(TreeNode node)
+  {
+    if(node== null)
+    {
+      return 0;
+    }
+    return 1 +  countNodesRes(node.left) + countNodesRes(node.right);
+  }
