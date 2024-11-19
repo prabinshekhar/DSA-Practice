@@ -1,0 +1,28 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      
+      int arr[] = {1,2,2,3,4,5,6,7,8,9};
+      int prev , current ;
+      int count=0;
+      for(int i=1;i<arr.length;i++)
+      {
+        prev=arr[i-1];
+        current= arr[i];
+        if(prev<=current)
+        {
+          count++;
+        }
+      }
+      
+      if(count==arr.length-1)
+      {
+       System.out.println("Array is sorted"); 
+      }
+      else{
+        System.out.println("Array is not sorted");
+      }
+      
+  }
+}
