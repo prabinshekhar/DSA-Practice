@@ -1,0 +1,30 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      
+      int arr[] = {1,2,2,3};
+      int prev , current ;
+      int i =0,j=1;
+      int count =0;
+      while(i<arr.length && j<arr.length)
+      {
+        prev=arr[i];
+        current=arr[j];
+        if(prev!=current)
+        {
+          count++;
+          arr[i+1]=arr[j];
+          i++;
+          j++;
+        }
+        else{
+          j++;
+        }
+      }
+      for(int k=0;k<=count;k++)
+      {
+        System.out.println(arr[k]);
+      }
+}
+}
