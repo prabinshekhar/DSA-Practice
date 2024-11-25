@@ -4,7 +4,9 @@ public class Main {
       int arr2[]={5,7,8,9};
       List<Integer> ia = new ArrayList<>();
       int i=0,j=0;
-      
+
+
+//Traverse both arrays using two pointer
      while(i<arr1.length && j<arr2.length){
         if(arr1[i]<arr2[j])
         {
@@ -22,13 +24,15 @@ public class Main {
           j++;
         }
      }
-     
+
+//Add remaining elements from arr1
      while(i<arr1.length)
      {
        ia.add(arr1[i]);
        i++;
      }
-     
+
+//Add remainin elements from arr2
      while(j<arr2.length)
      {
        ia.add(arr2[j]);
