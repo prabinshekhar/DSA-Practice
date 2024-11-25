@@ -23,3 +23,36 @@ public static int findMaxSumSubarray(int[] arr)
   return max;
 }
 }
+
+
+//If want to print the subarray with maximum sum
+public static void findMaxSumSubarray(int[] arr)
+{
+  int maxSum =arr[0];
+  int currentSum=arr[0];int start =0;
+  int end = 0;
+  int tempStart =0;
+  
+  
+  for(int i=1;i<arr.length;i++)
+  {
+    if(currentSum+arr[i]<arr[i])
+    {
+      currentSum=arr[i];
+      tempStart=i;
+    }
+    else{
+      currentSum+=arr[i];
+    }
+    if(currentSum>maxSum)
+    {
+      maxSum = currentSum;
+      start= tempStart;
+      end=i;
+    }
+  }
+  for(int i=start;i<=end;i++)
+  {
+    System.out.print(arr[i]+" ");
+  }
+}
