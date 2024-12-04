@@ -1,0 +1,10 @@
+public static int sumOfDigits(int n)
+  {
+    int dig = n%10;
+    if(n==0 || n<0)
+    {
+      return 0;
+    }
+   
+    return  dig + sumOfDigits(n/10);
+  }
