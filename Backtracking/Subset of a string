@@ -1,0 +1,31 @@
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+       String str= "abc";
+       List<String> subsets = new ArrayList<>();
+       
+       generateSubsets(str,0,"",subsets);
+       
+       for(String subset:subsets)
+       {
+           System.out.println(subset);
+       }
+        
+        
+    }
+    
+    public static void generateSubsets(String str , int i,String current , List<String> result)
+    {
+        if(i==str.length())
+        {
+            result.add(current);
+            return;
+        }
+        //Include
+        generateSubsets(str,i+1,current+str.charAt(i),result);
+
+        //Exclude
+        generateSubsets(str,i+1,current,result);
+    }
+}
